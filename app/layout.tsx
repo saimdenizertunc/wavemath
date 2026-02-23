@@ -50,8 +50,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
+      suppressHydrationWarning
     >
-      <body className="antialiased font-sans bg-cream text-espresso">
+      <body className="antialiased font-sans bg-cream text-espresso" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <footer className="bg-espresso text-cream/60 py-12 mt-24">

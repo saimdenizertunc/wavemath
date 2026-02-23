@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "tsx scripts/seed.ts",
+    "generate": "tsx scripts/generate-post.ts"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.2",

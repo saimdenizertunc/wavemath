@@ -1,3 +1,5 @@
+"use client";
+
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/react";
 import AlertBox from "./portable-text/AlertBox";
