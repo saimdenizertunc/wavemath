@@ -1,9 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+.pnp.*
 
 # testing
 /coverage
@@ -18,12 +16,14 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
-# debug
+# debug & logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
 # local env files
 .env*.local
@@ -39,8 +39,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# IDEs and Editors
+# IDEs and editors
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
+
+# claude code
+.claude/
+
+# test / scratch files
+test_*
+seed_error.log
