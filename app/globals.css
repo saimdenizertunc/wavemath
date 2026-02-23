@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Color palette */
+  --color-cream: #fefbf9;
+  --color-sand: #f7e1cd;
+  --color-umber: #8b685d;
+  --color-coffee: #614841;
+  --color-espresso: #261c1a;
+
+  /* Font families — CSS vars injected by next/font */
+  --font-serif: var(--font-playfair), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #fefbf9;
+  color: #261c1a;
+}
