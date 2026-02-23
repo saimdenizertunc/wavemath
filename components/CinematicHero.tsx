@@ -61,12 +61,13 @@ export default function CinematicHero({ post }: CinematicHeroProps) {
             className="flex gap-2 mb-4"
           >
             {post.categories.map((cat) => (
-              <span
+              <Link
                 key={cat.slug.current}
-                className="bg-coffee/80 backdrop-blur-sm text-cream text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wider"
+                href={`/category/${cat.slug.current}`}
+                className="bg-coffee/80 backdrop-blur-sm text-cream text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wider hover:bg-cream hover:text-espresso transition-colors duration-200"
               >
                 {cat.title}
-              </span>
+              </Link>
             ))}
           </motion.div>
         )}

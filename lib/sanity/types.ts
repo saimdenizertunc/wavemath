@@ -24,8 +24,14 @@ export interface Author {
 }
 
 export interface Category {
+  _id: string;
   title: string;
   slug: { current: string };
+  description?: string;
+}
+
+export interface CategoryWithPosts extends Category {
+  posts: PostCard[];
 }
 
 export interface PostCard {

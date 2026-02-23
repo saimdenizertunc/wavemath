@@ -32,3 +32,24 @@ export const postBySlugQuery = `
 export const allPostSlugsQuery = `
   *[_type == "post"] { "slug": slug.current }
 `;
+
+export const allCategoriesQuery = `
+  *[_type == "category" && defined(slug.current)] | order(title asc) {
+    _id,
+    title,
+    slug,
+    description
+  }
+`;
+
+export const categoryBySlugQuery = `
+  *[_type == "category" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    "posts": *[_type == "post" && references(^._id)] | order(publishedAt desc) {
+      ${postCardFields}
+    }
+  }
+`;

@@ -5,8 +5,10 @@ import {
   allPostsQuery,
   postBySlugQuery,
   allPostSlugsQuery,
+  allCategoriesQuery,
+  categoryBySlugQuery,
 } from "./queries";
-import type { PostCard, PostFull } from "./types";
+import type { PostCard, PostFull, Category, CategoryWithPosts } from "./types";
 
 // Guard: returns true when Sanity project ID is a real value (not placeholder)
 function isSanityConfigured(): boolean {
@@ -64,4 +66,30 @@ export const getAllPostSlugs = unstable_cache(
   },
   ["all-post-slugs"],
   { tags: ["post"], revalidate: 3600 }
+);
+
+export const getAllCategories = unstable_cache(
+  async (): Promise<Category[]> => {
+    if (!isSanityConfigured()) return [];
+    try {
+      return await serverClient.fetch(allCategoriesQuery);
+    } catch {
+      return [];
+    }
+  },
+  ["all-categories"],
+  { tags: ["category"], revalidate: 3600 }
+);
+
+export const getCategoryBySlug = unstable_cache(
+  async (slug: string): Promise<CategoryWithPosts | null> => {
+    if (!isSanityConfigured()) return null;
+    try {
+      return await serverClient.fetch(categoryBySlugQuery, { slug });
+    } catch {
+      return null;
+    }
+  },
+  ["category-by-slug"],
+  { tags: ["category"], revalidate: 3600 }
 );

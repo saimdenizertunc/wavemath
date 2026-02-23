@@ -59,12 +59,14 @@ export default function PostCard({ post, index = 0 }: PostCardProps) {
         {post.categories && post.categories.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-3">
             {post.categories.map((cat) => (
-              <span
+              <Link
                 key={cat.slug.current}
-                className="bg-coffee text-cream text-xs font-medium px-2.5 py-1 rounded-full uppercase tracking-wider"
+                href={`/category/${cat.slug.current}`}
+                className="bg-coffee text-cream text-xs font-medium px-2.5 py-1 rounded-full uppercase tracking-wider hover:bg-sand hover:text-espresso transition-colors"
+                onClick={(e) => e.stopPropagation()}
               >
                 {cat.title}
-              </span>
+              </Link>
             ))}
           </div>
         )}
