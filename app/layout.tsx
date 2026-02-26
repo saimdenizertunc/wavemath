@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import StickyTopbar from "@/components/StickyTopbar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,16 +44,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased font-sans bg-cream text-espresso" suppressHydrationWarning>
+      <body className="antialiased font-sans bg-cream text-espresso pt-16" suppressHydrationWarning>
+        <StickyTopbar />
         <Header />
         <main>{children}</main>
         <footer className="bg-espresso text-cream/60 py-12 mt-24">
